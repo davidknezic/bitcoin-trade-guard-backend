@@ -1,0 +1,26 @@
+{
+  "name": "bitcoin-trade-guard-backend",
+  "version": "0.0.1",
+  "author": "David Knezic <davidknezic@gmail.com>",
+  "description": "Server side backend for the Bitcoin Trade Guard.",
+  "license": "MIT",
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidknezic/bitcoin-trade-guard-backend.git"
+  },
+  "keywords": [
+    "bitcoin",
+    "trade",
+    "guard",
+    "backend"
+  ],
+  "scripts": {},
+  "dependencies": {
+    "mongoose": "^3.8.12",
+    "express": "^4.4.3"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}
