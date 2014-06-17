@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var TradeSchema = new Schema({
-	executionOn: Date,
+  executionOn: Date,
   isBtcSell: Boolean,
   isBtcBuy: Boolean,
   price: String,
