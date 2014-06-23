@@ -7,6 +7,7 @@ var Memcached = require('memcached');
 var Application = require('../app/app');
 var UsersResource = require('../app/resources/users');
 var TradesResource = require('../app/resources/trades');
+var LabelsResource = require('../app/resources/labels');
 
 var port = process.env.PORT || 8080;
 var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost/coinfigures';
@@ -17,7 +18,8 @@ var memcached = new Memcached(memcachedServers);
 
 var app = Application({
   users: UsersResource({ db: conn }),
-  trades: TradesResource({ db: conn })
+  trades: TradesResource({ db: conn }),
+  labels: LabelsResource({ db: conn })
 });
 
 http.createServer(app).listen(port);
