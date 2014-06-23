@@ -25,8 +25,13 @@ module.exports = exports = function (options) {
     users.get(options, function (error, user) {
       if (error) next(error);
 
+      if (!user) {
+        return next(new Error('auth_failed'));
+      }
+
       req.auth = req.auth || {};
       req.auth.user = user;
+      req.auth.type = 'basic';
     });
   };
 };
