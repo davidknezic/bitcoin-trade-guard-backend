@@ -3,21 +3,19 @@ var express = require('express');
 module.exports = exports = function (options) {
   var BasicAuth = require('./middleware/auth/basic');
 
-  var AccountRouter = require('./routers/account');
   var TradesRouter = require('./routers/trades');
-
-  var accountsRouter = require('./routers/accounts');
-  var labelsRouter = require('./routers/labels');
+  var UserRouter = require('./routers/user');
+  var UsersRouter = require('./routers/users');
+  var LabelsRouter = require('./routers/labels');
 
   var app = express();
 
   app.use(BasicAuth({ users: options.users }));
 
-  //app.use(AccountRouter({}));
+  app.use(UserRouter({ users: options.users }));
+  app.use(UsersRouter({ users: options.users }));
   app.use(TradesRouter({ trades: options.trades }));
-
-  //app.use(accountsRouter);
-  //app.use(labelsRouter);
+  app.use(LabelsRouter({ labels: options.labels }));
 
   app.all('*', function (req, res, next) {
     next(new Error('not_found'));
