@@ -5,6 +5,11 @@ module.exports = exports = function (options) {
   // Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
   return function (req, res, next) {
     var header = req.get('Authorization');
+
+    if (!header) {
+      return next();
+    }
+
     var parts = header.split(' ');
 
     if (parts[0] != 'Basic') {
