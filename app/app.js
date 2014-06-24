@@ -22,7 +22,7 @@ module.exports = exports = function (options) {
   });
 
   app.use(function(err, req, res, next) {
-    res.send(500, { error: 'something' });
+    res.send(500, { error: err.message });
   });
 
   return app;
