@@ -1,10 +1,12 @@
 var express = require('express');
 
+var authRequired = require('../middleware/auth/required');
+
 module.exports = exports = function (options) {
   var trades = options.trades;
   var router = express.Router();
 
-  router.get('/trades', function (req, res) {
+  router.get('/trades', authRequired, function (req, res) {
     var options = {};
 
     /*req.query.page
@@ -18,7 +20,7 @@ module.exports = exports = function (options) {
     });
   });
 
-  router.get('/trades/:id', function (req, res) {
+  router.get('/trades/:id', authRequired, function (req, res) {
     var options = {};
     options.id = req.get('id');
 
@@ -29,7 +31,7 @@ module.exports = exports = function (options) {
     });
   });
 
-  router.post('/trades', function (req, res) {
+  router.post('/trades', authRequired, function (req, res) {
     /*var trade = new Trade(req);
 
     trade.save(function (error) {
@@ -37,10 +39,10 @@ module.exports = exports = function (options) {
     });*/
   });
 
-  router.put('/trades/:id', function (req, res) {
+  router.put('/trades/:id', authRequired, function (req, res) {
   });
 
-  router.delete('/trades/:id', function (req, res) {
+  router.delete('/trades/:id', authRequired, function (req, res) {
   });
 
   return router;
