@@ -10,6 +10,8 @@ module.exports = exports = function (options) {
 
   var app = express();
 
+  app.set('json spaces', 2);
+
   app.use(BasicAuth({ users: options.users }));
 
   app.use(UserRouter({ users: options.users }));
