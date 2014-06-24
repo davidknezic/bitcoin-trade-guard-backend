@@ -32,17 +32,15 @@ module.exports = exports = function (options) {
   });
 
   router.post('/trades', authRequired, function (req, res) {
-    /*var trade = new Trade(req);
-
-    trade.save(function (error) {
-      if (error) return;
-    });*/
+    res.json(200, 'OK');
   });
 
   router.put('/trades/:id', authRequired, function (req, res) {
+    res.json(200, 'OK');
   });
 
   router.delete('/trades/:id', authRequired, function (req, res) {
+    res.json(200, 'OK');
   });
 
   return router;

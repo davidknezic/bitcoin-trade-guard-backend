@@ -6,11 +6,18 @@ module.exports = exports = function (options) {
 
   return {
     list: function (options, callback, context) {
-      /*Trade.find({}, function (err, trades) {
+      var filter = {};
+
+      if (options.user_id) {
+        filter.owner = {};
+        filter.owner.id = options.user_id;
+      }
+
+      User.find(filter, function (err, users) {
         if (err) callback.call(context, err);
 
-        callback.call(context, null, trades);
-      });*/
+        callback.call(context, null, users);
+      });
     },
 
     get: function (options, callback, context) {
@@ -20,10 +27,14 @@ module.exports = exports = function (options) {
       if (options.email) filter.email = options.email;
       if (options.password) filter.passwordHash = options.password;
 
-      Trade.find(filter, function (error, trade) {
+      User.find(filter, function (error, users) {
         if (error) callback.call(context, error);
 
-        callback.call(context, null, trade);
+        if (!users || users.length < 1) {
+          return callback.call(context, null, null);
+        }
+
+        callback.call(context, null, users[0]);
       });
     },
 
