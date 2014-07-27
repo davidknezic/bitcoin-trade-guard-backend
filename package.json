@@ -17,8 +17,9 @@
   ],
   "scripts": {},
   "dependencies": {
-    "mongoose": "^3.8.12",
-    "express": "^4.4.3"
+    "express": "^4.4.3",
+    "memcached": "^0.2.8",
+    "mongoose": "^3.8.12"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
